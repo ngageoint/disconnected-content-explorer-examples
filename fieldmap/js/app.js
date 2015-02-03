@@ -9,6 +9,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope) {
   $scope.lat = 39.739198;
   $scope.lon = -104.984804;
   $scope.deleteButtonVisible = false;
+  $scope.layerManagerVisible = false;
   $scope.activeLocation = {};
   $scope.statusText = "";
 

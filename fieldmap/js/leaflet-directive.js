@@ -18,10 +18,6 @@ fieldMap.directive('leaflet', function () {
       var geoJsonLayer;
       var newMarker;
       var geoMarker;
-      var blueMarker = L.AwesomeMarkers.icon({
-        
-        markerColor: 'blue'
-      });
 
 
       map.setView([0,0], 5);
@@ -46,18 +42,10 @@ fieldMap.directive('leaflet', function () {
       });
 
 
-      $scope.configureFeature = function (feature, layer) {
-        /*return {
-          pointToLayer: function(feature, latlng) {
-            var marker = L.marker(latlng, blueMarker);
-            return marker;
-          },
-          onEachFeature: function(feature, marker) {*/
-            if (feature.properties && feature.properties.text) {
-              layer.bindPopup(feature.properties.text);
-            }
-          /*}
-        }*/
+      $scope.configureFeature = function (feature, layer) {  
+        if (feature.properties && feature.properties.text) {
+          layer.bindPopup(feature.properties.text);
+        }
       }
 
 
@@ -79,7 +67,7 @@ fieldMap.directive('leaflet', function () {
           $scope.showControls = true;
           console.log("Leaflet Directive: newLocation changed with lat:" + $scope.newLocation.geometry.coordinates[0] + " lon: " + $scope.newLocation.geometry.coordinates[1]);
           newMarker = L.marker([$scope.newLocation.geometry.coordinates[1], $scope.newLocation.geometry.coordinates[0]], {
-            draggable: true
+            draggable: true, icon: L.AwesomeMarkers.icon({markerColor: 'green'})
           }).on('dragend', function(e) {
             $scope.$apply(function(s) {
               console.log("marker new location: ", newMarker.getLatLng());
@@ -101,6 +89,12 @@ fieldMap.directive('leaflet', function () {
           }
 
           geoJsonLayer = L.geoJson($scope.locations, {
+            pointToLayer: function(feature, latlng) {
+              return L.marker(latlng,
+                  {icon: L.AwesomeMarkers.icon(
+                    {markerColor: 'cadetblue'}
+                  )});
+            },
             onEachFeature: $scope.configureFeature
           });
 
@@ -110,26 +104,19 @@ fieldMap.directive('leaflet', function () {
       }, true);
 
 
-      var createMap = function () {
-        console.log("Leaflet Directive: creating map");
-        $scope.map = new L.map('map').setView([$scope.lat, $scope.lon], 5);
-        L.tileLayer('tiles/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-            maxZoom: 8
-        }).addTo($scope.map);
-      }
-
-
       $scope.updateMapLocation = function () {
         if ($scope.lat != 0 && $scope.lon !=0) {
           console.log("Leaflet Directive: Changing map view lat: " + $scope.lat + " lon: " + $scope.lon);
           map.setView([$scope.lat, $scope.lon], 6);
           $scope.center = {lat: $scope.lat, lon: $scope.lon};
+          
+          geoMarker = L.circle([$scope.lat, $scope.lon], 500,  {
+            color: 'blue',
+            fillColor: '#22f',
+            fillOpacity: 0.5
+          }).addTo(map);
         }
       }
-
-      createMap();
     } // end of controller
-
   } // end of return
 });
