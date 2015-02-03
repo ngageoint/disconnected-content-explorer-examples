@@ -33,49 +33,23 @@ html, body, #map {
 #group {
   z-index: 34159;
   position: absolute;
-  top: 75px;
+  top: 15px;
   left: 55px;
   float: left;
 }
-
-/*
-#new {
-  z-index: 34159;
-  position: absolute;
-  top: 75px;
-  left: 55px;
-  float: left;
-}
-
-#geolocate {
-  z-index: 34159;
-  position: absolute;
-  top: 75px;
-  left: 105px;
-  float: left;
-}
-
-#export {
-  z-index: 34159;
-  position: absolute;
-  top: 75px;
-  left: 155px;
-  float: left;
-}
-*/
 
 #location-text-area {
   z-index: 34159;
   position: absolute;
-  top: 135px;
+  top: 75px;
   left: 55px;
 }
 
 #delete {
   z-index: 34159;
   position: absolute;
-  top: 75px;
-  right: 55px;
+  top: 15px;
+  left: 225px;
   float: left;
 }
 

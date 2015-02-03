@@ -2,16 +2,12 @@
 <html ng-app="fieldMap">
 <head>
   <title>Field Map</title>
-  <link rel="stylesheet " href="vendor/leaflet-0.7.2/leaflet.css" />
-  <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet " href="vendor/leaflet-0.7.2/leaflet.css" />
+  <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">  
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="AppCtrl">
-
-  <div id="map-title">
-    <h2>Field Map</h2>
-  </div>
 
   <div id="group" class="btn-group btn-group-lg">
     <button class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
@@ -27,7 +23,7 @@
     </div>
   </div>
 
-  <button class="btn btn-danger" id="delete" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
+  <button class="btn btn-danger btn-lg" id="delete" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
 
