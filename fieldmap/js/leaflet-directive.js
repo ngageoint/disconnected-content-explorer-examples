@@ -18,6 +18,8 @@ fieldMap.directive('leaflet', function () {
       var geoJsonLayer;
       var newMarker;
       var geoMarker;
+      var mapZoom = { start:map.getZoom(), end:map.getZoom() };
+      L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
 
 
       map.setView([0,0], 5);
@@ -42,11 +44,30 @@ fieldMap.directive('leaflet', function () {
       });
 
 
+      map.on('zoomstart', function (e) {
+        mapZoom.start = map.getZoom();
+      });
+
+
+      map.on('zoomend', function(e) {
+        mapZoom.end = map.getZoom();
+        var diff = mapZoom.start - mapZoom.end;
+        
+        if (geoMarker) {
+          if (diff > 0) {
+            geoMarker.setRadius(geoMarker.getRadius() * 2);
+          } else if (diff < 0) {
+            geoMarker.setRadius(geoMarker.getRadius() / 2);
+          }
+        }
+      });
+
+
       $scope.configureFeature = function (feature, layer) {  
         if (feature.properties && feature.properties.text) {
           layer.bindPopup(feature.properties.text);
         }
-      }
+      };
 
 
       $scope.$watch("lat", function () {
@@ -67,7 +88,7 @@ fieldMap.directive('leaflet', function () {
           $scope.showControls = true;
           console.log("Leaflet Directive: newLocation changed with lat:" + $scope.newLocation.geometry.coordinates[0] + " lon: " + $scope.newLocation.geometry.coordinates[1]);
           newMarker = L.marker([$scope.newLocation.geometry.coordinates[1], $scope.newLocation.geometry.coordinates[0]], {
-            draggable: true, icon: L.AwesomeMarkers.icon({markerColor: 'green'})
+            draggable: true, icon: L.AwesomeMarkers.icon({icon:'glyphicon-plus',markerColor: 'green'})
           }).on('dragend', function(e) {
             $scope.$apply(function(s) {
               console.log("marker new location: ", newMarker.getLatLng());
@@ -92,7 +113,7 @@ fieldMap.directive('leaflet', function () {
             pointToLayer: function(feature, latlng) {
               return L.marker(latlng,
                   {icon: L.AwesomeMarkers.icon(
-                    {markerColor: 'cadetblue'}
+                    {icon:'info-sign', markerColor: 'cadetblue'}
                   )});
             },
             onEachFeature: $scope.configureFeature
@@ -110,7 +131,7 @@ fieldMap.directive('leaflet', function () {
           map.setView([$scope.lat, $scope.lon], 6);
           $scope.center = {lat: $scope.lat, lon: $scope.lon};
           
-          geoMarker = L.circle([$scope.lat, $scope.lon], 500,  {
+          geoMarker = L.circle([$scope.lat, $scope.lon], 10000,  {
             color: 'blue',
             fillColor: '#22f',
             fillOpacity: 0.5
