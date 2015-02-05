@@ -13,6 +13,30 @@ fieldMap.directive('leaflet', function () {
     },
 
     controller: function($scope, $element, $window, $rootScope, $http) {
+
+      var latlngCenterOfGeometry = function(geom) {
+        var polygons = null;
+        if (geom.type == 'Polygon') {
+          polygons = [geom.coordinates];
+        }
+        else if (geom.type == 'MultiPolygon') {
+          polygons = geom.coordinates;
+        }
+        var bbox = null;
+        var polygonsRemaining = polygons.length;
+        while (polygonsRemaining--) {
+          var polygon = polygons[polygonsRemaining];
+          var outerRing = polygon[0];
+          var positionsRemaining = outerRing.length
+          while (positionsRemaining--) {
+            var pos = outerRing[positionsRemaining];
+            var latlng = L.latLng(pos[1], pos[0]);
+            bbox = bbox ? bbox.extend(latlng) : L.latLngBounds(latlng);
+          }
+        }
+        return bbox.getCenter();
+      };
+
       var map = L.map("map", {trackResize: true});
       var layerGroup = L.layerGroup();
       var tileLayer;
@@ -78,42 +102,56 @@ fieldMap.directive('leaflet', function () {
       var airportsUrl = 'co_airports.geojson';
       $http.get(airportsUrl, {"responseType": "json"})
         .success(function(data) {
-          airports.addData(data);
+          airports.addData(data).addTo(map);
         })
         .error(function() {
           alert('Failed to load airport data from ' + airportsUrl);
         });
 
-      var parkIcon = L.AwesomeMarkers.icon({
-        "icon": "leaf", "markerColor": "darkgreen"
-      });
-      var parks = L.geoJson(null, {
-        "pointToLayer": function(feature, latlng) {
-          return L.marker(latlng, {"icon": parkIcon});
-        },
-        "onEachFeature": function(feature, layer) {
-          layer.bindPopup(feature.properties.UNIT_NAME);
-        },
+
+      var parkBoundaries = L.geoJson(null, {
         "style": {
           "color": "#061",
           "weight": 2
+        },
+        "onEachFeature": function(feature, layer) {
+          layer.bindPopup(feature.properties.UNIT_NAME);
         }
+      })
+      var parks = L.layerGroup(null);
+      var parkIcon = L.AwesomeMarkers.icon({
+        "icon": "leaf", "markerColor": "darkgreen"
       });
       var parksUrl = 'co_parks.geojson';
       $http.get(parksUrl, {"responseType": "json"})
         .success(function(data) {
-          parks.addData(data);
+          parkBoundaries.addData(data);
+          var parkMarks = [];
+          var remaining = data.features.length;
+          while (remaining--) {
+            var feature = data.features[remaining];
+            var geom = feature.geometry;
+            var center = latlngCenterOfGeometry(geom);
+            var parkMark = L.marker(center, {"icon": parkIcon})
+              .bindPopup(feature.properties.UNIT_NAME);
+            parks.addLayer(parkMark);
+          }
+          map.addLayer(parks);
+          map.addLayer(parkBoundaries);
         })
         .error(function() {
-          alert('Failed to load parks data from ' + parksUrl);
+          alert('Failed to load national parks data from ' + parksUrl);
         });
 
+
+      var tiles = null;
       var features = {
         "User Points": layerGroup,
         "Airports": airports,
-        "National Parks": parks
+        "National Parks": parks,
+        "National Park Boundaries": parkBoundaries
       };
-      L.control.layers(null, features).addTo(map);
+      L.control.layers(tiles, features).addTo(map);
 
 
       $scope.configureFeature = function (feature, layer) {
