@@ -84,9 +84,34 @@ fieldMap.directive('leaflet', function () {
           alert('Failed to load airport data from ' + airportsUrl);
         });
 
+      var parkIcon = L.AwesomeMarkers.icon({
+        "icon": "leaf", "markerColor": "darkgreen"
+      });
+      var parks = L.geoJson(null, {
+        "pointToLayer": function(feature, latlng) {
+          return L.marker(latlng, {"icon": parkIcon});
+        },
+        "onEachFeature": function(feature, layer) {
+          layer.bindPopup(feature.properties.UNIT_NAME);
+        },
+        "style": {
+          "color": "#061",
+          "weight": 2
+        }
+      });
+      var parksUrl = 'co_parks.geojson';
+      $http.get(parksUrl, {"responseType": "json"})
+        .success(function(data) {
+          parks.addData(data);
+        })
+        .error(function() {
+          alert('Failed to load parks data from ' + parksUrl);
+        });
+
       var features = {
         "User Points": layerGroup,
-        "Airports": airports
+        "Airports": airports,
+        "National Parks": parks
       };
       L.control.layers(null, features).addTo(map);
 
