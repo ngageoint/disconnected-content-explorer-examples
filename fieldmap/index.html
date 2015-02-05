@@ -4,7 +4,7 @@
   <title>Field Map</title>
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet " href="vendor/leaflet-0.7.2/leaflet.css" />
-  <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">  
+  <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="AppCtrl">
@@ -25,10 +25,6 @@
 
   <button class="btn btn-danger btn-lg" id="delete" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
-  </button>
-
-  <button class="btn btn-default btn-lg" id="layers" type="button" ng-show="{{!showLayerManager}}" ng-click="toggleLayerManager()" ngm-tap="toggleLayerManager()">
-    <span class="glyphicon glyphicon-cog"></span>
   </button>
 
   <div id="location-text-area" ng-show="showControls">
