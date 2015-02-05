@@ -2,7 +2,7 @@
 
 var fieldMap = angular.module("fieldMap", []);
 
-fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope) {
+fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
   $scope.locations = [];
   $scope.newLocation = {};
   $scope.showControls = false;
@@ -43,7 +43,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope) {
     return true;
   }
 
-  
+
   $scope.cancel = function() {
     $scope.showControls = false;
     $scope.newLocation = {};
@@ -123,7 +123,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope) {
   }
 
 
-  // Javascript Bridge 
+  // Javascript Bridge
   $scope.exportPoints = function() {
     console.log("fixin to export");
     $scope.statusText = "Exporting GeoJSON";
@@ -160,6 +160,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope) {
   $scope.dismissNotification = function() {
     $scope.statusText = "";
   }
+
 
   $scope.getLocation();
   $scope.loadPoints();

@@ -12,9 +12,10 @@ fieldMap.directive('leaflet', function () {
       activeLocation: '='
     },
 
-    controller: function($scope, $element, $window, $rootScope) {
+    controller: function($scope, $element, $window, $rootScope, $http) {
       var map = L.map("map", {trackResize: true});
       var layerGroup = L.layerGroup();
+      var tileLayer;
       var geoJsonLayer;
       var newMarker;
       var geoMarker;
@@ -23,7 +24,7 @@ fieldMap.directive('leaflet', function () {
 
 
       map.setView([0,0], 5);
-      L.tileLayer('tiles/{z}/{x}/{y}.png', {
+      tileLayer = L.tileLayer('tiles/{z}/{x}/{y}.png', {
           attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
           maxZoom: 8
       }).addTo(map);
@@ -52,7 +53,7 @@ fieldMap.directive('leaflet', function () {
       map.on('zoomend', function(e) {
         mapZoom.end = map.getZoom();
         var diff = mapZoom.start - mapZoom.end;
-        
+
         if (geoMarker) {
           if (diff > 0) {
             geoMarker.setRadius(geoMarker.getRadius() * 2);
@@ -63,7 +64,34 @@ fieldMap.directive('leaflet', function () {
       });
 
 
-      $scope.configureFeature = function (feature, layer) {  
+      var airportIcon = L.AwesomeMarkers.icon({
+        "icon": "plane", "markerColor": "blue"
+      });
+      var airports = L.geoJson(null, {
+        "pointToLayer": function(feature, latlng) {
+          return L.marker(latlng, {"icon": airportIcon});
+        },
+        "onEachFeature": function(feature, layer) {
+          layer.bindPopup(feature.properties.name + " (" + feature.id + ")");
+        }
+      });
+      var airportsUrl = 'co_airports.geojson';
+      $http.get(airportsUrl, {"responseType": "json"})
+        .success(function(data) {
+          airports.addData(data);
+        })
+        .error(function() {
+          alert('Failed to load airport data from ' + airportsUrl);
+        });
+
+      var features = {
+        "User Points": layerGroup,
+        "Airports": airports
+      };
+      L.control.layers(null, features).addTo(map);
+
+
+      $scope.configureFeature = function (feature, layer) {
         if (feature.properties && feature.properties.text) {
           layer.bindPopup(feature.properties.text);
         }
@@ -130,7 +158,7 @@ fieldMap.directive('leaflet', function () {
           console.log("Leaflet Directive: Changing map view lat: " + $scope.lat + " lon: " + $scope.lon);
           map.setView([$scope.lat, $scope.lon], 6);
           $scope.center = {lat: $scope.lat, lon: $scope.lon};
-          
+
           geoMarker = L.circle([$scope.lat, $scope.lon], 10000,  {
             color: 'blue',
             fillColor: '#22f',
