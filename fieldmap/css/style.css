@@ -53,6 +53,14 @@ html, body, #map {
   float: left;
 }
 
+#layers {
+  z-index: 34158;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  float: left;
+}
+
 #status-window {
   z-index: 34159;
   position: absolute;

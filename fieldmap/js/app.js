@@ -160,6 +160,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
   $scope.dismissNotification = function() {
     $scope.statusText = "";
   }
+  
 
 
   $scope.getLocation();

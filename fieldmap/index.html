@@ -10,9 +10,9 @@
 <body ng-controller="AppCtrl">
 
   <div id="group" class="btn-group btn-group-lg">
-    <button class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
+    <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
       <span class="glyphicon glyphicon-plus"></span>
-    </button>
+    </div>
 
     <div class="btn btn-info" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
       <span class="glyphicon glyphicon-map-marker"></span>
@@ -25,6 +25,10 @@
 
   <button class="btn btn-danger btn-lg" id="delete" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
+  </button>
+
+  <button class="btn btn-default btn-lg" id="layers" type="button" ng-show="{{!showLayerManager}}" ng-click="toggleLayerManager()" ngm-tap="toggleLayerManager()">
+    <span class="glyphicon glyphicon-cog"></span>
   </button>
 
   <div id="location-text-area" ng-show="showControls">

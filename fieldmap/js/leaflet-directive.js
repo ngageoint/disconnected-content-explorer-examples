@@ -159,6 +159,10 @@ fieldMap.directive('leaflet', function () {
           map.setView([$scope.lat, $scope.lon], 6);
           $scope.center = {lat: $scope.lat, lon: $scope.lon};
 
+          if (map.hasLayer(geoMarker)) {
+            map.removeLayer(geoMarker);
+          }
+
           geoMarker = L.circle([$scope.lat, $scope.lon], 10000,  {
             color: 'blue',
             fillColor: '#22f',
