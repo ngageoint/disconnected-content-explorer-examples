@@ -188,6 +188,8 @@ fieldMap.directive('leaflet', function () {
             });
           });
           map.addLayer(newMarker);
+        } else if (map.hasLayer(newMarker)) {
+          map.removeLayer(newMarker);
         }
       });
 
