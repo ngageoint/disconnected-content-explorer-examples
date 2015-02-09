@@ -1,0 +1,64 @@
+---
+layout:       post
+title:        "Field Map"
+description:  "An interactive map that uses the JavaScript bridge"
+date:         2015-02-04 12:51:33
+categories:   Example
+---
+[Download fieldmap.zip][zip] After clicking the link chose "Open in DICE."
+
+![Field Map Screenshot]({{ site.baseurl }}/images/fieldmap.png)
+
+This map is an example of how you could use DICE in a disaster response situation.
+
+Save points with a description while in the affected area, and export them to geoJSON for use in other tools. Since all of the map tiles are included in the zip file, you can take offline maps with you on your iPad. There are also a couple of layers that you can switch on and off showing airports and national parks in Colorado. 
+
+The export and GPS functions of this map use the iOS Javascript bridge to call code in the DICE app to get the user's location and write the geoJSON to a file. You could use HTML 5 geolocation, but every time the page loads you would have to get the user's permission to get their location. This way, you authorize the app to use your location onces, and use the native code to access the GPS.
+
+Below is the code that this example uses to get the user's location.
+
+{% highlight javascript %}
+
+  $scope.initBridge = function() {
+    $scope.connectWebViewJavascriptBridge(function(bridge) {
+      bridge.init(function(message, responseCallback) {
+        console.log('JS got a message', message)
+      })
+    })
+  }
+
+  $scope.connectWebViewJavascriptBridge = function(callback) {
+    if (window.WebViewJavascriptBridge) {
+      callback(WebViewJavascriptBridge);
+    } else {
+      document.addEventListener('WebViewJavascriptBridgeReady', function() {
+        callback(WebViewJavascriptBridge);
+      }, false)
+    }
+  }
+
+  $scope.getLocation = function() {
+    console.log("Controller: in getLocaion");
+    $scope.connectWebViewJavascriptBridge(function(bridge) {
+      bridge.callHandler('getLocation', {}, function(response) {
+        console.log("Recieved callback from geolocation.");
+        if (response != null && response.success == "true") {
+          $scope.setCoordinates(response);
+        } else { // no GPS? set the map center to Denver.
+          console.log("No navigator, setting coordinates to defaults... " + response.message);
+          $scope.lat = 39.739093;
+          $scope.lon = -104.984794;
+        }
+      })
+    })
+  }
+  
+{% endhighlight %}
+
+Resources used to create the user guide: [Bootstrap][bootstrap] for layout, [Leaflet.js][leaflet] for the map, [Awesome Markers][awesome] for custom map pins, [AngularJS][angular] to tie together the points you create with the map and to use the DICE JS bridge.
+
+[bootstrap]:    http://getbootstrap.com/
+[angular]:      https://angularjs.org/
+[leaflet]:      http://leafletjs.com/
+[awesome]:      https://github.com/lvoogdt/Leaflet.awesome-markers
+[zip]:          https://github.com/ngageoint/disconnected-content-explorer-examples/raw/master/reportzips/fieldmap.zip
