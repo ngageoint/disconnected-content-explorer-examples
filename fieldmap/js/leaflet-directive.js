@@ -146,7 +146,7 @@ fieldMap.directive('leaflet', function () {
 
       var tiles = null;
       var features = {
-        "User Points": layerGroup,
+        "My Points": layerGroup,
         "Airports": airports,
         "National Parks": parks,
         "National Park Boundaries": parkBoundaries
