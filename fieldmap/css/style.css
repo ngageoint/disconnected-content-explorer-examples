@@ -45,6 +45,10 @@ html, body, #map {
   left: 55px;
 }
 
+#location-text-area textarea {
+  width: 470px;
+}
+
 #delete {
   z-index: 34159;
   position: absolute;
@@ -64,9 +68,9 @@ html, body, #map {
 #status-window {
   z-index: 34159;
   position: absolute;
-  top: 75px;
+  top: 15px;
   left: 555px;
-  height: 45px;
+  height: 65px;
   width: 255px;
   background: rgba(255, 255, 255, 0.85);
   text-align: center;
@@ -128,3 +132,8 @@ background-image: linear-gradient(top,#1293dc,#0f6297);
 .gap-bottom-xl {
   margin-bottom: 65px;
 }
+
+.lighter {
+  color: #999;
+}
+
