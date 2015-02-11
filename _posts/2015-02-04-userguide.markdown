@@ -9,7 +9,7 @@ categories:    Example
 
 ![User Guide Screenshot]({{ site.baseurl }}/images/userguide.png)
 
-The user guide example is a bit of dogfooding, using example content to show this app can be used.
+The user guide example is a bit of dogfooding, using example content to show how this app can be used.
 
 If you can display it in a browser using HTML5, CSS, and Javascript, odds are you can take that content offline with DICE, as long as you keep your data local and relatively linked. 
 

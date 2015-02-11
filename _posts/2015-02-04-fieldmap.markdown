@@ -13,7 +13,7 @@ This map is an example of how you could use DICE in a disaster response situatio
 
 Save points with a description while in the affected area, and export them to geoJSON for use in other tools. Since all of the map tiles are included in the zip file, you can take offline maps with you on your iPad. There are also a couple of layers that you can switch on and off showing airports and national parks in Colorado. 
 
-The export and GPS functions of this map use the iOS Javascript bridge to call code in the DICE app to get the user's location and write the geoJSON to a file. You could use HTML 5 geolocation, but every time the page loads you would have to get the user's permission to get their location. This way, you authorize the app to use your location onces, and use the native code to access the GPS.
+The export and GPS functions of this map use the iOS Javascript bridge to call code in the DICE app to get the user's location and write the geoJSON to a file. You could use HTML 5 geolocation, but every time the page loads you would have to get the user's permission to get their location. This way, you authorize the app to use your location once, and use the native code to access the GPS.
 
 Below is the code that this example uses to get the user's location.
 
