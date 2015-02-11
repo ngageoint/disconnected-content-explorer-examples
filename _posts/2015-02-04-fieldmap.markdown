@@ -5,7 +5,7 @@ description:  "An interactive map that uses the JavaScript bridge"
 date:         2015-02-04 12:51:33
 categories:   Example
 ---
-[Download fieldmap.zip][zip] After clicking the link chose "Open in DICE."
+[Download fieldmap.zip][zip] After clicking the link choose "Open in DICE."
 
 ![Field Map Screenshot]({{ site.baseurl }}/images/fieldmap.png)
 

@@ -5,7 +5,7 @@ description:  "An overview of the app"
 date:         2015-02-04 12:51:33
 categories:    Example
 ---
-[Download DICEUserGuide.zip][zip] After clicking the link chose "Open in DICE."
+[Download DICEUserGuide.zip][zip] After clicking the link choose "Open in DICE."
 
 ![User Guide Screenshot]({{ site.baseurl }}/images/userguide.png)
 
