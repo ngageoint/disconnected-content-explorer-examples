@@ -10,6 +10,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
   $scope.lon = -104.984804;
   $scope.deleteButtonVisible = false;
   $scope.layerManagerVisible = false;
+  $scope.showInfo = false;
   $scope.activeLocation = {};
   $scope.statusText = "";
 
@@ -162,6 +163,9 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
   }
   
 
+  $scope.toggleInfo = function() {
+    $scope.showInfo = !$scope.showInfo;
+  }
 
   $scope.getLocation();
   $scope.loadPoints();

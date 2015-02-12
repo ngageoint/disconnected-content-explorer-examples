@@ -10,16 +10,20 @@
 <body ng-controller="AppCtrl">
 
   <div id="group" class="btn-group btn-group-lg">
-    <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
-      <span class="glyphicon glyphicon-plus"></span>
+    <div class="btn btn-default" id="info" type="button" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
+      <span class="glyphicon glyphicon-info-sign"></span>
     </div>
 
-    <div class="btn btn-info" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
+    <div class="btn btn-default" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
       <span class="glyphicon glyphicon-map-marker"></span>
     </div>
 
     <div class="btn btn-default" id="export" ng-click="exportPoints()" ngm-tap="exportPoints()">
       <span class="glyphicon glyphicon-share"></span>
+    </div>
+
+    <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
+      <span class="glyphicon glyphicon-plus"></span>
     </div>
   </div>
 
@@ -37,6 +41,15 @@
 
   <div id="status-window" ng-show="statusText" ng-click="dismissNotification()" ngm-tap="dismissNotification()">
     <p>{{statusText}}</p>
+    <small class="lighter">tap to dismiss</small>
+  </div>
+
+  <div id="map-info" ng-show="showInfo" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
+    <h3>Field Map, a DICE example</h3>
+    <p><span class="glyphicon glyphicon-map-marker"></span> Tap the geolocate button to show your location on the map.</p>
+    <p><span class="glyphicon glyphicon-share"></span> Tap export to save your points to the app's export directory. You can download the points by copying the DICE export directory using <a href="http://support.apple.com/en-us/HT201301">iOS file sharing</a></p>
+    <p><span class="glyphicon glyphicon-plus"></span> Tap to create a new point. By default new points will be placed at your location, or if you haven't geolocated yourself, a new maker will be created in Denver, CO. You can drag the marker to change its location before saving.</p>
+
     <small class="lighter">tap to dismiss</small>
   </div>
 
