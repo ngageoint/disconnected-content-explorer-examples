@@ -44,7 +44,7 @@ fieldMap.directive('leaflet', function () {
       var newMarker;
       var geoMarker;
       var mapZoom = { start:map.getZoom(), end:map.getZoom() };
-      L.AwesomeMarkers.Icon.prototype.options.prefix = 'glyphicon';
+      L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 
 
       map.setView([0,0], 5);
@@ -87,6 +87,20 @@ fieldMap.directive('leaflet', function () {
         }
       });
 
+      map.on('layeradd', function () {
+        if (map.hasLayer(geoJsonLayer)) {
+          geoJsonLayer.bringToFront();
+        }
+        if (map.hasLayer(geoMarker)) {
+          geoMarker.bringToFront();
+        }
+      });
+
+      map.on('moveend', function () {
+        $scope.$apply(function () {
+          $scope.center = map.getCenter();
+        });
+      });
 
       var airportIcon = L.AwesomeMarkers.icon({
         "icon": "plane", "markerColor": "blue"
@@ -102,7 +116,7 @@ fieldMap.directive('leaflet', function () {
       var airportsUrl = 'co_airports.geojson';
       $http.get(airportsUrl, {"responseType": "json"})
         .success(function(data) {
-          airports.addData(data).addTo(map);
+          airports.addData(data); //.addTo(map)
         })
         .error(function() {
           alert('Failed to load airport data from ' + airportsUrl);
@@ -136,8 +150,8 @@ fieldMap.directive('leaflet', function () {
               .bindPopup(feature.properties.UNIT_NAME);
             parks.addLayer(parkMark);
           }
-          map.addLayer(parks);
-          map.addLayer(parkBoundaries);
+          //map.addLayer(parks);
+          //map.addLayer(parkBoundaries);
         })
         .error(function() {
           alert('Failed to load national parks data from ' + parksUrl);
@@ -179,7 +193,7 @@ fieldMap.directive('leaflet', function () {
           $scope.showControls = true;
           console.log("Leaflet Directive: newLocation changed with lat:" + $scope.newLocation.geometry.coordinates[0] + " lon: " + $scope.newLocation.geometry.coordinates[1]);
           newMarker = L.marker([$scope.newLocation.geometry.coordinates[1], $scope.newLocation.geometry.coordinates[0]], {
-            draggable: true, icon: L.AwesomeMarkers.icon({icon:'glyphicon-plus',markerColor: 'green'})
+            draggable: true, icon: L.AwesomeMarkers.icon({icon:'fa-plus',markerColor: 'green'})
           }).on('dragend', function(e) {
             $scope.$apply(function(s) {
               console.log("marker new location: ", newMarker.getLatLng());
@@ -206,7 +220,7 @@ fieldMap.directive('leaflet', function () {
             pointToLayer: function(feature, latlng) {
               return L.marker(latlng,
                   {icon: L.AwesomeMarkers.icon(
-                    {icon:'info-sign', markerColor: 'cadetblue'}
+                    {icon:'circle', markerColor: 'cadetblue'}
                   )});
             },
             onEachFeature: $scope.configureFeature
@@ -231,7 +245,7 @@ fieldMap.directive('leaflet', function () {
           geoMarker = L.circle([$scope.lat, $scope.lon], 10000,  {
             color: 'blue',
             fillColor: '#22f',
-            fillOpacity: 0.5
+            fillOpacity: 0.5,
           }).addTo(map);
         }
       }

@@ -2,4 +2,7 @@
   "title": "Field Map",
   "description": "Example map built with Angular and Leaflet",
   "thumbnail": "img/thumbnail.png",
+  "tile_thumbnail": "img/tilethumb.png",
+  "lat": "39.739093",
+  "lon": "-104.984794"
 }

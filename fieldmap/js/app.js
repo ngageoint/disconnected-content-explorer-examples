@@ -58,7 +58,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [$scope.center.lon, $scope.center.lat]
+        "coordinates": [$scope.center.lng, $scope.center.lat]
       },
       "properties": {
         "text": ""
@@ -170,4 +170,10 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
   $scope.getLocation();
   $scope.loadPoints();
   $scope.initBridge();
+
+  // this is dumb, but ng-cloak won't play nice with the UIWebView
+  angular.element( document.querySelector( '#delete' )).removeClass('hide-on-load');
+  angular.element( document.querySelector( '#location-text-area' )).removeClass('hide-on-load');
+  angular.element( document.querySelector( '#status-window' )).removeClass('hide-on-load');
+  angular.element( document.querySelector( '#map-info' )).removeClass('hide-on-load');
 });

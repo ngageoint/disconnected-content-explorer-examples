@@ -81,9 +81,8 @@ html, body, #map {
 #map-info {
   z-index: 34159;
   position: absolute;
-  top: 15px;
-  left: 555px;
-  height: 410px;
+  top: 10px;
+  right: 60px;
   width: 355px;
   background: rgba(255, 255, 255, 0.85);
   padding: 12px;
@@ -153,3 +152,10 @@ background-image: linear-gradient(top,#1293dc,#0f6297);
   color: #999;
 }
 
+.help-icon {
+  margin-right: 7px;
+}
+
+.hide-on-load {
+  display: none;
+}
