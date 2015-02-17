@@ -3,6 +3,7 @@
 <head>
   <title>Field Map</title>
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/font-awesome-4.3.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.css" />
   <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">
   <link rel="stylesheet" href="css/style.css">
@@ -10,24 +11,28 @@
 <body ng-controller="AppCtrl">
 
   <div id="group" class="btn-group btn-group-lg">
-    <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
-      <span class="glyphicon glyphicon-plus"></span>
+    <div class="btn btn-default" id="info" type="button" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
+      <i class="fa fa-question fa-lg"></i>
     </div>
 
-    <div class="btn btn-info" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
-      <span class="glyphicon glyphicon-map-marker"></span>
+    <div class="btn btn-default" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
+      <i class="fa fa-location-arrow fa-lg"></i>
     </div>
 
     <div class="btn btn-default" id="export" ng-click="exportPoints()" ngm-tap="exportPoints()">
-      <span class="glyphicon glyphicon-share"></span>
+      <i class="fa fa-share-square-o fa-lg"></i>
+    </div>
+
+    <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ngm-tap="createNewLocation()">
+      <i class="fa fa-plus fa-lg"></i>
     </div>
   </div>
 
-  <button class="btn btn-danger btn-lg" id="delete" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
+  <button class="btn btn-danger btn-lg hide-on-load" id="delete" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
 
-  <div id="location-text-area" ng-cloak ng-if="showControls">
+  <div id="location-text-area" ng-show="showControls"  class="ng-cloak" ng-cloak>
     <textarea rows="7" cols="75" ng-model="newLocation.properties.text" placeholder="Description"></textarea>
     <div>
       <div class="btn btn-danger" ng-click="cancel()" ngm-tap="cancel()" style="display:inline-block; width: 234px;">Cancel</div>
@@ -35,8 +40,17 @@
     </div>
   </div>
 
-  <div id="status-window" ng-cloak ng-if="statusText" ng-click="dismissNotification()" ngm-tap="dismissNotification()">
+  <div id="status-window" class="hide-on-load" ng-show="statusText" ng-click="dismissNotification()" ngm-tap="dismissNotification()">
     <p>{{statusText}}</p>
+    <small class="lighter">tap to dismiss</small>
+  </div>
+
+  <div id="map-info" class="hide-on-load" ng-show="showInfo" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
+    <h3>Field Map, a DICE example</h3>
+    <p><span class="help-icon"><i class="fa fa-location-arrow"></i></span> Tap the geolocate button to show your location on the map.</p>
+    <p><span class="help-icon"><i class="fa fa-share-square-o"></i></span> Tap export to save your points to the app's export directory. You can download the points by copying the DICE export directory using <a href="http://support.apple.com/en-us/HT201301">iOS file sharing</a></p>
+    <p><span class="help-icon"><i class="fa fa-plus"></i></span>  Tap to create a new point. By default new points will be placed at your location, or if you haven't geolocated yourself, a new maker will be created in Denver, CO. You can drag the marker to change its location before saving.</p>
+    <p><span class="help-icon"><i class="fa fa-question"></i></span> Tap to show or dismiss this help window.</p>
     <small class="lighter">tap to dismiss</small>
   </div>
 
