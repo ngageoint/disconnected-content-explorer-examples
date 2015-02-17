@@ -7,6 +7,11 @@
   <link rel="stylesheet " href="vendor/leaflet-0.7.2/leaflet.css" />
   <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/angular.js"></script>
+  <script src="vendor/leaflet-0.7.2/leaflet.js"></script>
+  <script src="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/leaflet-directive.js"></script>
 </head>
 <body ng-controller="AppCtrl">
 
@@ -28,7 +33,7 @@
     </div>
   </div>
 
-  <button class="btn btn-danger btn-lg hide-on-load" id="delete" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
+  <button id="delete" class="btn btn-danger btn-lg hide-on-load" type="button" ng-show="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
 
@@ -57,11 +62,5 @@
   <div id="map">
     <div leaflet new-location="newLocation" locations="locations" lat="lat" lon="lon" center="center" show-controls="showControls" delete-button-visible="deleteButtonVisible" active-location="activeLocation"></div>
   </div>
-
-  <script src="vendor/angular.js"></script>
-  <script src="vendor/leaflet-0.7.2/leaflet.js"></script>
-  <script src="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/leaflet-directive.js"></script>
 </body>
 </html>
