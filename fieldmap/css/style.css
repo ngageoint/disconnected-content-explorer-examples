@@ -1,3 +1,7 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 body {
   background: #fff;
   color: #000;
@@ -86,7 +90,7 @@ html, body, #map {
   width: 355px;
   background: rgba(255, 255, 255, 0.85);
   padding: 12px;
-  border-radius: 7px;  
+  border-radius: 7px;
 }
 
 #map-info p {
@@ -154,8 +158,4 @@ background-image: linear-gradient(top,#1293dc,#0f6297);
 
 .help-icon {
   margin-right: 7px;
-}
-
-.hide-on-load {
-  display: none;
 }
