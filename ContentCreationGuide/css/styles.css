@@ -75,6 +75,7 @@ p , li {
 
 
 
+
 .pagination {
   position: absolute;
   left: 0;
@@ -92,3 +93,15 @@ p , li {
   margin: 0 3px;
   cursor: pointer;
 }
+.swiper-active-switch {
+  background: #fff;
+}
+
+.swiper-container {
+  /* Specify Swiper's Size: */
+
+  width:500px;
+  height:500px;
+  margin-bottom: 45px;
+}
+
