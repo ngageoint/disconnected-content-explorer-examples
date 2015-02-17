@@ -5,16 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="vendor/wow/animate.css">
-    <link rel="stylesheet" href="vendor/swiper/idangerous.swiper.css">
-    <link rel="stylesheet" href="vendor/twentytwenty.css">
     <link rel="stylesheet" href="vendor/leaflet-0.7.3/leaflet.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="vendor/jquery.1.10.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.event.move.js"></script>
-    <script src="vendor/jquery.twentytwenty.js"></script>
-    <script src="vendor/wow/wow.min.js"></script>
     <script src="vendor/swiper/idangerous.swiper.min.js"></script>
     <title>DICE User Guide</title>
   </head>
@@ -31,87 +24,21 @@
     <div class="container gap-bottom-xl">
       <div class="row gap-top">
         <div class="col-md-12 col-lg-12">
-          <div id="twenty-container1" class="twentytwenty-container">
-            <img alt="before" src="img/before.jpg" width="100%" />
-            <img alt="after" src="img/after.jpg" width="100%" />
-          </div>
+          
         </div>
       </div>
       <div class="row gap-top">
         <div class="col-sm-6 col-md-6 col-lg-6">
-          <p>Offline content doesn't have to be just another PDF or Powerpoint presentation.</p>
+          <h2>No connection, no problem</h2>
+          <p>
+            This app lets you take web content with you when you will be without an internet connection.  Each offline website in DICE is called a report.
+          </p>
+          <p>
+            If you put your iPad into airplane mode, you will see that you can still zoom in and out on this map, because all of the map’s data is stored on your iPad.
+          </p>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6">
-          <p>With DICE you can have rich, interactive HTML with video, animations, and slippy maps. Don't worry, your PDFs and Microsoft Office documents can come too.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="band">
-      <div class="container gap-bottom-xl">
-        <div class="row gap-top-l">
-          <div class="col-md-12 col-lg-12"> 
-            <h2>Creating content for DICE</h2>
-          </div>
-        </div>
-        <div class="row gap-top">
-          <div class="col-sm-6 col-md-6">
-            <div id="map" style="height:350px;"></div>
-          </div>
-          <div class="col-sm-6 col-md-6">
-            <p>
-              Reports in DICE are displayed in a web view. While you can load PDFs and Office documents, interactive web content is much more compelling. Why just show a static map when you can allow the user to pan around and zoom? When creating websites to view in DICE you can use HTML, JavaScript, and CSS. Since you cannot install browser plugins in mobile browsers; Flash, Silverlight, or applets will not work in DICE.
-            </p>
-          </div>
-        </div>
-        <div class="row gap-top">
-          <div class="col-sm-9 col-md-9">
-            <p>
-              Just as with normal websites, the root folder of your report must contain an index.html file. The rest of your resources and can be placed in folders. Relative links to files are supported by DICE. The image to the right shows the layout for the COFlood demo report which uses several JavaScript libraries, displays a map, and also has a video embedded in the page.
-            </p>
-          </div>
-          <div class="col-sm-3 col-md-3">
-            <img src="img/structure.png">
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="container gap-bottom-xl">
-      <div class="row gap-top-l">
-        <div class="col-md-12 col-lg-12">
-          <h2>Loading reports onto your iPad</h2>
-        </div>
-      </div>
-        <div class="row gap-top">
-          <div class=" col-sm-12 col-md-5 col-lg-6">
-            <p>
-              DICE iOS supports PDFs, Microsoft Office Documents and websites contained in .zip files. To load them into the app, connect the iPad to your computer and open up iTunes. Click on the device name on the tool bar, and then follow these steps below.
-            </p>
-            <p>
-              To delete reports, select items from the DICE Documents list and press the delete key, then click the sync button.
-            </p>
-            <p>
-              Once the data has been synced to your iPad, open DICE, the first time it may take a few seconds to load. While unzipping the content the report description in the list view will update with the unzip progress. If the app is already open when you sync, pull down on the report list to refresh. A spinner will display showing that the reports are being loaded.
-            </p>
-            <p>
-              Tap on a report to view it.
-            </p>
-            <p>
-              PDF and Office files can be loaded into the app without being zipped.
-            </p>
-          </div>
-          <div class="col-sm-12 col-md-7 col-lg-6" id="gallery">
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/load1.png"></div>
-                <div class="swiper-slide"><img src="img/load2.png"></div>
-                <div class="swiper-slide"><img src="img/load3.png"></div>
-              </div>
-            </div>
-            <div class="pagination"></div>
-          </div>
+          <div id="map" style="height:350px;"></div>
         </div>
       </div>
     </div>
@@ -121,57 +48,28 @@
       <div class="container gap-bottom-xl">
         <div class="row gap-top-l">
           <div class="col-md-12 col-lg-12">
-            <h2>Loading reports onto your Android tablet</h2>
+            <h2>Saving your notes, and loading more content</h2>
+            <p></p>
           </div>
         </div>
         <div class="row gap-top">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <video src="vid/android.mp4" controls width="100%"></video>
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <video src="vid/notesandloading.mp4" controls width="100%"></video>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="col-sm-12 col-md-12 col-lg-12">
             <p>
-              If you are using a Mac you may need to install Android File Transfer, available at: <a href="https://www.android.com/filetransfer/">https://www.android.com/filetransfer/</a>.
-              To load reports on the Android version, connect your device to your computer, on the SD Card create a DICE folder. Drag and drop the report zip files into the DICE folder. The app will detect that content has been added and will load it.
+              You can write notes about each report by tapping the notes button in the top right hand corner. To save your notes to your computer, plug in your iPad, open iTunes, select your device, click the Apps tab, scroll to the bottom, under the File Sharing section select DICE, click on the notes folder and finally click Save to.
             </p>
             <p>
-              The Android and iOS versions can view the same report zip files. You can load PDF and office docs into DICE on Android, however viewing those types of content may require you to install additional apps to display them properly.
+              Loading new reports is similar, simply click add, or drag and drop a file into the DICE Documents pane in iTunes.
             </p>
           </div>
         </div>
       </div>
     </div>
 
-
-    <div class="container gap-bottom-xl">
-      <div class="row gap-top-l">
-        <div class="col-md-12 col-lg-12">
-          <h2>Recommended Frameworks</h2>
-        </div>
-      </div>
-      <div class="row gap-top">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-          <p>Feel free to pull this report out of DICE and poke around in the code.</p>
-        
-          <p>
-            <ul>
-              <li>Twitter Bootstrap for layout - <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
-              <li>TwentyTwenty used for the image compare at the top of this page - <a href="http://zurb.com/playground/twentytwenty">http://zurb.com/playground/twentytwenty</a></li>
-              <li>LeafletJS for maps - <a href="http://leafletjs.com/">http://leafletjs.com/</a></li>
-              <li>JQuery for manipulating elements on the page - <a href="http://jquery.com/">http://jquery.com/</a></li>
-              <li>AngularJS for more complex interactions that require a data model - <a href="http://angularjs.org/">http://angularjs.org/</a></li>
-              <li>D3 for really fancy charts - <a href="http://d3js.org/">http://d3js.org/</a></li>
-              <li>Swiper for touchable photo galleries - <a href="http://www.idangero.us/sliders/swiper/index.php">http://www.idangero.us/sliders/swiper/index.php</a></li>
-              <li>HammerJS for multitouch interactions - <a href="http://eightmedia.github.io/hammer.js/">http://eightmedia.github.io/hammer.js/</a></li>
-              <li>One Page Scroll for layouts similar to the Circa app - <a href="https://github.com/peachananr/onepage-scroll">https://github.com/peachananr/onepage-scroll</a></li>
-            </ul>
-          </p>
-        </div>
-      </div>
-    </div>
 
     <script src="vendor/leaflet-0.7.3/leaflet.js"></script>
-    <script src="js/userguide.js"></script>
-    
     <script>
       var map = L.map('map').setView([40.0095, -105.2551], 14);
 

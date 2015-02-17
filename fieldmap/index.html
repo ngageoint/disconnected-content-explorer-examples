@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="fieldMap">
+
 <head>
   <title>Field Map</title>
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="vendor/leaflet-0.7.2/leaflet.awesomemarkers/leaflet.awesome-markers.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body ng-controller="AppCtrl">
 
   <div id="group" class="btn-group btn-group-lg">
@@ -28,7 +30,7 @@
     </div>
   </div>
 
-  <button class="btn btn-danger btn-lg" id="delete" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
+  <button id="delete" class="btn btn-danger btn-lg" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
 
