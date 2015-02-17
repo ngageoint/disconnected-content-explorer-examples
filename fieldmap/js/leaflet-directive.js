@@ -12,7 +12,7 @@ fieldMap.directive('leaflet', function () {
       activeLocation: '='
     },
 
-    controller: function($scope, $element, $window, $rootScope, $http) {
+    controller: function($scope, $element, $window, $rootScope, $http, $timeout) {
 
       var latlngCenterOfGeometry = function(geom) {
         var polygons = null;
@@ -97,7 +97,7 @@ fieldMap.directive('leaflet', function () {
       });
 
       map.on('moveend', function () {
-        $scope.$apply(function () {
+        $timeout(function () {
           $scope.center = map.getCenter();
         });
       });
