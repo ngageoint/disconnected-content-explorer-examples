@@ -12,7 +12,7 @@ fieldMap.directive('leaflet', function () {
       activeLocation: '='
     },
 
-    controller: function($scope, $element, $window, $rootScope, $http) {
+    controller: function($scope, $element, $window, $rootScope, $http, $timeout) {
 
       var latlngCenterOfGeometry = function(geom) {
         var polygons = null;
@@ -97,7 +97,7 @@ fieldMap.directive('leaflet', function () {
       });
 
       map.on('moveend', function () {
-        $scope.$apply(function () {
+        $timeout(function () {
           $scope.center = map.getCenter();
         });
       });
@@ -119,7 +119,7 @@ fieldMap.directive('leaflet', function () {
           airports.addData(data); //.addTo(map)
         })
         .error(function() {
-          alert('Failed to load airport data from ' + airportsUrl);
+          console.log('failed to load airport data from ' + airportsUrl);
         });
 
 
@@ -154,7 +154,7 @@ fieldMap.directive('leaflet', function () {
           //map.addLayer(parkBoundaries);
         })
         .error(function() {
-          alert('Failed to load national parks data from ' + parksUrl);
+          console.log('failed to load national parks data from ' + parksUrl);
         });
 
 
