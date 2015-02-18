@@ -60,7 +60,7 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [$scope.center.lng, $scope.center.lat]
+        "coordinates": [$scope.lon, $scope.lat]
       },
       "properties": {
         "text": ""
