@@ -38,9 +38,21 @@ fieldMap.directive('leaflet', function () {
       };
 
       var map = L.map("map", {trackResize: true});
-      var layerGroup = L.layerGroup();
+      var userPoints = L.geoJson($scope.locations, {
+        pointToLayer: function(feature, latlng) {
+          return L.marker(latlng,
+              {icon: L.AwesomeMarkers.icon(
+                {icon:'circle', markerColor: 'cadetblue'}
+              )});
+        },
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.text) {
+            layer.bindPopup(feature.properties.text);
+          }
+        }
+      }).addTo(map);
+
       var tileLayer;
-      var geoJsonLayer;
       var newMarker;
       var geoMarker;
       var mapZoom = { start:map.getZoom(), end:map.getZoom() };
@@ -57,15 +69,17 @@ fieldMap.directive('leaflet', function () {
       map.on('popupopen', function(e) {
         $scope.$apply(function () {
           $scope.activeLocation = e.popup._source;
-          $scope.deleteButtonVisible = true;
+          $scope.deleteButtonVisible = userPoints.hasLayer($scope.activeLocation);
         });
       });
 
 
       map.on('popupclose', function(e) {
-        $scope.$apply(function () {
-          $scope.deleteButtonVisible = false;
-        });
+        if ($scope.deleteButtonVisible) {
+          $scope.$apply(function () {
+            $scope.deleteButtonVisible = false;
+          });
+        }
       });
 
 
@@ -88,8 +102,8 @@ fieldMap.directive('leaflet', function () {
       });
 
       map.on('layeradd', function () {
-        if (map.hasLayer(geoJsonLayer)) {
-          geoJsonLayer.bringToFront();
+        if (map.hasLayer(userPoints)) {
+          userPoints.bringToFront();
         }
         if (map.hasLayer(geoMarker)) {
           geoMarker.bringToFront();
@@ -132,7 +146,7 @@ fieldMap.directive('leaflet', function () {
           layer.bindPopup(feature.properties.UNIT_NAME);
         }
       })
-      var parks = L.layerGroup(null);
+      var parks = L.layerGroup();
       var parkIcon = L.AwesomeMarkers.icon({
         "icon": "leaf", "markerColor": "darkgreen"
       });
@@ -160,20 +174,12 @@ fieldMap.directive('leaflet', function () {
 
       var tiles = null;
       var features = {
-        "My Points": layerGroup,
+        "My Points": userPoints,
         "Airports": airports,
         "National Parks": parks,
         "National Park Boundaries": parkBoundaries
       };
       L.control.layers(tiles, features).addTo(map);
-
-
-      $scope.configureFeature = function (feature, layer) {
-        if (feature.properties && feature.properties.text) {
-          layer.bindPopup(feature.properties.text);
-        }
-      };
-
 
       $scope.$watch("lat", function () {
         console.log("Leaflet Directive: Lat changed " + $scope.lat);
@@ -211,23 +217,12 @@ fieldMap.directive('leaflet', function () {
       $scope.$watch("locations", function() {
         console.log("Leaflet Directive: locations changed ", $scope.locations);
         if ($scope.locations) {
-          layerGroup.clearLayers();
           if (map.hasLayer(newMarker)) {
             map.removeLayer(newMarker);
           }
 
-          geoJsonLayer = L.geoJson($scope.locations, {
-            pointToLayer: function(feature, latlng) {
-              return L.marker(latlng,
-                  {icon: L.AwesomeMarkers.icon(
-                    {icon:'circle', markerColor: 'cadetblue'}
-                  )});
-            },
-            onEachFeature: $scope.configureFeature
-          });
-
-          layerGroup.addLayer(geoJsonLayer).addTo(map);
-          map
+          userPoints.clearLayers();
+          userPoints.addData($scope.locations);
         }
       }, true);
 
