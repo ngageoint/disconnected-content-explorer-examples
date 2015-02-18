@@ -34,7 +34,9 @@ fieldMap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) {
   // handle writing the point to local storage
   $scope.saveLocation = function() {
     console.log("Controller: saving location: ", $scope.newLocation);
-    if (!$scope.supportsLocalStorage()) { return false; }
+    if (!$scope.supportsLocalStorage()) {
+      return false;
+    }
     $scope.locations.features.push($scope.newLocation);
 
     localStorage.setItem("dice.fieldmap.locations", JSON.stringify($scope.locations));
