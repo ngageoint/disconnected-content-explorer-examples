@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/disconnected-content-explorer-examples/</link>
     <atom:link href="http://yourdomain.com/disconnected-content-explorer-examples/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 25 Feb 2015 17:26:09 -0700</pubDate>
-    <lastBuildDate>Wed, 25 Feb 2015 17:26:09 -0700</lastBuildDate>
+    <pubDate>Mon, 09 Mar 2015 23:38:14 -0600</pubDate>
+    <lastBuildDate>Mon, 09 Mar 2015 23:38:14 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -16,11 +16,11 @@
 
 &lt;p&gt;&lt;img src=&quot;/disconnected-content-explorer-examples/images/metromap.png&quot; alt=&quot;Metro Map Screenshot&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;While we built this app to aid disaster response and search and rescue groups, it is our hope that they won’t have a reason to use it any time soon. &lt;/p&gt;
+&lt;p&gt;While we built this app to aid disaster response and search and rescue groups, it is our hope that they won’t have a reason to use it any time soon.&lt;/p&gt;
 
-&lt;p&gt;So for the times that they are not in the field helping folks get out of harm’s way, a nice trip to Europe could get them charged back up. This example could help in planning a sightseeing trip to Paris. &lt;/p&gt;
+&lt;p&gt;So for the times that they are not in the field helping folks get out of harm’s way, a nice trip to Europe could get them charged back up. This example could help in planning a sightseeing trip to Paris.&lt;/p&gt;
 
-&lt;p&gt;Subway maps are great, but sometimes it can be difficult to see where the metro lines actually go in relation to the city. This map lets you view the museums and must see sights of Paris alongside the routes of the city’s excellent subway system. &lt;/p&gt;
+&lt;p&gt;Subway maps are great, but sometimes it can be difficult to see where the metro lines actually go in relation to the city. This map lets you view the museums and must see sights of Paris alongside the routes of the city’s excellent subway system.&lt;/p&gt;
 
 &lt;p&gt;Add a couple of points to the map where you find a new favorite creperie or cafe so you will remember them for next time.&lt;/p&gt;
 
@@ -84,7 +84,7 @@
 
 &lt;p&gt;The content creation guide is a kitchen sink of interactive components, and some documentation to show you how to build your reports so you can get the most out of DICE.&lt;/p&gt;
 
-&lt;p&gt;If you can display it in a browser using HTML5, CSS, and Javascript, odds are you can take that content offline with DICE, as long as you keep your data local and relatively linked. &lt;/p&gt;
+&lt;p&gt;If you can display it in a browser using HTML5, CSS, and Javascript, odds are you can take that content offline with DICE, as long as you keep your data local and relatively linked.&lt;/p&gt;
 
 &lt;p&gt;When creating your own content for DICE, you can add a metadata.json file to let the app know how to display your content in the list, tile, and map views. If you do not set a title, the filename minus the extension will be used.&lt;/p&gt;
 
@@ -132,66 +132,6 @@
         <pubDate>Wed, 04 Feb 2015 05:51:33 -0700</pubDate>
         <link>http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/04/userguide.html</link>
         <guid isPermaLink="true">http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/04/userguide.html</guid>
-        
-        
-        <category>example</category>
-        
-      </item>
-    
-      <item>
-        <title>Field Map</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/ngageoint/disconnected-content-explorer-examples/raw/master/reportzips/fieldmap.zip&quot;&gt;Download fieldmap.zip&lt;/a&gt; After clicking the link choose “Open in DICE.”&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/disconnected-content-explorer-examples/images/fieldmap.png&quot; alt=&quot;Field Map Screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This map is an example of how you could use DICE in a disaster response situation.&lt;/p&gt;
-
-&lt;p&gt;Save points with a description while in the affected area, and export them to geoJSON for use in other tools. Since all of the map tiles are included in the zip file, you can take offline maps with you on your iPad. There are also a couple of layers that you can switch on and off showing airports and national parks in Colorado. &lt;/p&gt;
-
-&lt;p&gt;The export and GPS functions of this map use the iOS Javascript bridge to call code in the DICE app to get the user’s location and write the geoJSON to a file. You could use HTML 5 geolocation, but every time the page loads you would have to get the user’s permission to get their location. This way, you authorize the app to use your location once, and use the native code to access the GPS.&lt;/p&gt;
-
-&lt;p&gt;Below is the code that this example uses to get the user’s location.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initBridge&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connectWebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;responseCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;JS got a message&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connectWebViewJavascriptBridge&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;WebViewJavascriptBridgeReady&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getLocation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Controller: in getLocaion&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connectWebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;getLocation&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Recieved callback from geolocation.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setCoordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// no GPS? set the map center to Denver.&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;No navigator, setting coordinates to defaults... &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;39.739093&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;104.984794&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Resources used to create the user guide: &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; for layout, &lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet.js&lt;/a&gt; for the map, &lt;a href=&quot;https://github.com/lvoogdt/Leaflet.awesome-markers&quot;&gt;Awesome Markers&lt;/a&gt; for custom map pins, &lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; to tie together the points you create with the map and to use the DICE JS bridge.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 04 Feb 2015 05:51:33 -0700</pubDate>
-        <link>http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/04/fieldmap.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/04/fieldmap.html</guid>
         
         
         <category>example</category>
