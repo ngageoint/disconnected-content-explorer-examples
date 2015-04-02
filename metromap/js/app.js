@@ -102,7 +102,12 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
     console.log("Controller: in getLocaion");
     $scope.connectWebViewJavascriptBridge(function(bridge) {
       bridge.callHandler('getLocation', {}, function(response) {
-        console.log("Recieved callback from geolocation.");
+        if (typeof response == "string") {
+          console.log("conterting string to json object");
+          response = JSON.parse(response);
+        }
+        console.log("Recieved callback from geolocation: " + response);
+        console.log("Type of response: " + typeof response);
         if (response != null && response.success == "true") {
           $scope.setCoordinates(response);
           $scope.didGeolocate = true;
@@ -132,7 +137,11 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
     $scope.statusText = "Exporting GeoJSON";
     $scope.connectWebViewJavascriptBridge(function(bridge) {
       bridge.callHandler('saveToFile', $scope.locations, function(response) {
-        console.log("Recieved callback from data export.");
+        console.log("Recieved callback from data export: " + response);
+        if (typeof response == "string") {
+          console.log("conterting string to json object");
+          response = JSON.parse(response);
+        }
         $scope.statusText = response.message;
         $scope.$apply();
       })

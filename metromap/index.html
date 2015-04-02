@@ -13,7 +13,7 @@
 
 <body ng-controller="AppCtrl">
 
-  <div id="group" class="btn-group btn-group-lg">
+  <div id="group" class="btn-group">
     <div class="btn btn-default" id="info" type="button" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
       <i class="fa fa-question fa-lg"></i>
     </div>
@@ -31,12 +31,12 @@
     </div>
   </div>
 
-  <button id="delete" class="btn btn-danger btn-lg" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
+  <button id="delete" class="btn btn-danger" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
 
   <div id="location-text-area" ng-cloak ng-if="showControls">
-    <textarea rows="7" cols="75" ng-model="newLocation.properties.text" placeholder="Description"></textarea>
+    <textarea rows="6" ng-model="newLocation.properties.text" placeholder="Description"></textarea>
     <div>
       <div class="btn btn-danger" ng-click="cancel()" ngm-tap="cancel()" style="display:inline-block; width: 234px;">Cancel</div>
       <div class="btn btn-info" ng-click="saveLocation()" ngm-tap="saveLocation()" style="display:inline-block; width: 234px; padding-right: 4px;">Save</div>

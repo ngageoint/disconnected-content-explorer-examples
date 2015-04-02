@@ -37,26 +37,33 @@ html, body, #map {
 #group {
   z-index: 34159;
   position: absolute;
-  top: 15px;
-  left: 55px;
+  top: 10px;
+  left: 50px;
   float: left;
 }
 
 #location-text-area {
   z-index: 34159;
   position: absolute;
-  top: 75px;
-  left: 55px;
+  top: 55px;
+  left: 50px;
 }
 
-#location-text-area textarea {
-  width: 470px;
+@media (min-width: 641px) {
+  #location-text-area textarea {
+    width: 470px;
+  }
+}
+@media (max-width: 640px) {
+  #location-text-area textarea {
+    width: 234px;
+  }
 }
 
 #delete {
   z-index: 34159;
   position: absolute;
-  top: 15px;
+  top: 10px;
   left: 280px;
   float: left;
 }
@@ -72,11 +79,12 @@ html, body, #map {
 #status-window {
   z-index: 34159;
   position: absolute;
-  top: 15px;
-  left: 555px;
+  top: 55px;
+  left: 50px;
   height: 90px;
   width: 275px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(245, 245, 245, 0.85);
+  border: 1px solid rgba(200, 200, 200, 0.85);
   text-align: center;
   padding: 12px;
   border-radius: 7px;
