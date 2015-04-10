@@ -37,9 +37,10 @@ parismetromap.directive('leaflet', function () {
 
       map.setView([0,0], 12);
       tileLayer = L.tileLayer('tiles/{z}/{x}/{y}.png', {
-          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="http://cloudmade.com">CloudMade</a>, Icon Map Created by <a href="http://thenounproject.com/term/map/32153/">Simple Icons</a>',
-          maxZoom: 13,
-          minZoom: 11
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="http://cloudmade.com">CloudMade</a>, Icon Map Created by <a href="http://thenounproject.com/term/map/32153/">Simple Icons</a>',
+        maxZoom: 13,
+        minZoom: 11,
+        errorTileUrl: "img/error_tile.png"
       }).addTo(map);
 
 
