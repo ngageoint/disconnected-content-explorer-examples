@@ -21,8 +21,10 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
     if ($scope.supportsLocalStorage() && localStorage["dice.parismetromap.locations"]) {
       $scope.locations = JSON.parse(localStorage["dice.parismetromap.locations"]);
       if (!$scope.locations) {
-        $scope.locations = { "type": "FeatureCollection",
-          "features": []};
+        $scope.locations = {
+          "type": "FeatureCollection",
+          "features": []
+        };
       }
       console.log("Controller: loaded points: ", $scope.locations);
     } else {

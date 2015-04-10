@@ -14,25 +14,6 @@ html, body, #map {
   width: 100%
 }
 
-#map-title {
-  position: absolute;
-  z-index: 34159;
-  pointer-events: none;
-  top: 20px;
-  left: 50px;
-}
-
-#map-title img {
-  float: left;
-}
-
-#map-title h2 {
-  float: both;
-  margin-left: 60px;
-  margin-top: 5px;
-  color: #555;
-}
-
 /* Buttons and location text box */
 #group {
   z-index: 34159;

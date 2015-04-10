@@ -16,29 +16,6 @@ parismetromap.directive('leaflet', function () {
 
     controller: function($scope, $element, $window, $rootScope, $http, $timeout) {
 
-      var latlngCenterOfGeometry = function(geom) {
-        var polygons = null;
-        if (geom.type == 'Polygon') {
-          polygons = [geom.coordinates];
-        }
-        else if (geom.type == 'MultiPolygon') {
-          polygons = geom.coordinates;
-        }
-        var bbox = null;
-        var polygonsRemaining = polygons.length;
-        while (polygonsRemaining--) {
-          var polygon = polygons[polygonsRemaining];
-          var outerRing = polygon[0];
-          var positionsRemaining = outerRing.length
-          while (positionsRemaining--) {
-            var pos = outerRing[positionsRemaining];
-            var latlng = L.latLng(pos[1], pos[0]);
-            bbox = bbox ? bbox.extend(latlng) : L.latLngBounds(latlng);
-          }
-        }
-        return bbox.getCenter();
-      };
-
       var map = L.map("map", {
         trackResize: true,
         maxBounds: [
