@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var parismetromap = angular.module("parismetromap", []);
 
@@ -31,7 +31,7 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
       $scope.locations = { "type": "FeatureCollection",
         "features": []};
     }
-  }
+  };
 
 
   // handle writing the point to local storage
@@ -45,13 +45,13 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
     $scope.showControls = false;
     $scope.newLocation = {};
     return true;
-  }
+  };
 
 
   $scope.cancel = function() {
     $scope.showControls = false;
     $scope.newLocation = {};
-  }
+  };
 
 
   $scope.createNewLocation = function() {
@@ -67,7 +67,7 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
         "text": ""
       }
     };
-  }
+  };
 
 
   // removes a point from $scope.locations and saves the resulting array to local storage
@@ -86,7 +86,7 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
 
     localStorage.setItem("dice.parismetromap.locations", JSON.stringify($scope.locations));
     $scope.deleteButtonVisible = false;
-  }
+  };
 
 
   // Check to see if you can use HTML local storage
@@ -96,7 +96,7 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
     } catch (e) {
       return false;
     }
-  }
+  };
 
 
   // Geolocation stuff
@@ -105,12 +105,12 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
     $scope.connectWebViewJavascriptBridge(function(bridge) {
       bridge.callHandler('getLocation', {}, function(response) {
         if (typeof response == "string") {
-          console.log("conterting string to json object");
+          console.log("converting string to json object");
           response = JSON.parse(response);
         }
-        console.log("Recieved callback from geolocation: " + response);
+        console.log("Received callback from geolocation: " + response);
         console.log("Type of response: " + typeof response);
-        if (response != null && response.success == "true") {
+        if (response && String(response.success).toLowerCase() == 'true') {
           $scope.setCoordinates(response);
           $scope.didGeolocate = true;
         } else { // no GPS? center on France
@@ -120,7 +120,7 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
         }
       })
     })
-  }
+  };
 
 
   $scope.setCoordinates = function(position) {
@@ -130,25 +130,25 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
       $scope.lat = position.lat;
       $scope.lon = position.lon;
     });
-  }
+  };
 
 
   // Javascript Bridge
   $scope.exportPoints = function() {
-    console.log("fixin to export");
+    console.log("fixin' to export");
     $scope.statusText = "Exporting GeoJSON";
     $scope.connectWebViewJavascriptBridge(function(bridge) {
       bridge.callHandler('saveToFile', $scope.locations, function(response) {
-        console.log("Recieved callback from data export: " + response);
+        console.log("Received callback from data export: " + response);
         if (typeof response == "string") {
-          console.log("conterting string to json object");
+          console.log("converting string to json object");
           response = JSON.parse(response);
         }
         $scope.statusText = response.message;
         $scope.$apply();
       })
     })
-  }
+  };
 
 
   $scope.connectWebViewJavascriptBridge = function(callback) {
@@ -159,7 +159,7 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
         callback(WebViewJavascriptBridge);
       }, false)
     }
-  }
+  };
 
 
   $scope.initBridge = function() {
@@ -168,17 +168,17 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
         console.log('JS got a message', message)
       })
     })
-  }
+  };
 
 
   $scope.dismissNotification = function() {
     $scope.statusText = "";
-  }
+  };
 
 
   $scope.toggleInfo = function() {
     $scope.showInfo = !$scope.showInfo;
-  }
+  };
 
   $scope.loadPoints();
   $scope.initBridge();
