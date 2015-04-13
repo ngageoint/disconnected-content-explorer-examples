@@ -56,7 +56,6 @@ parismetromap.controller('AppCtrl', function AppCtrl($rootScope, $scope, $http) 
 
   $scope.createNewLocation = function() {
     console.log("Controller: creating new newLocation");
-    $scope.showControls = true;
     $scope.newLocation = {
       "type": "Feature",
       "geometry": {
