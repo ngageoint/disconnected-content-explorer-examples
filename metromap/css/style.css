@@ -23,21 +23,51 @@ html, body, #map {
   float: left;
 }
 
-#location-text-area {
+#new-location-controls {
   z-index: 34159;
   position: absolute;
-  top: 55px;
-  left: 50px;
+  margin-top: 40px;
+}
+
+#new-location-controls textarea {
+  width: 100%;
+}
+
+#new-location-controls .btn {
+  width: 49%;
+  border: none;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#new-location-desc {
+  height: 2em;
+}
+
+@media (min-width: 401px) {
+  #new-location-controls {
+    width: 200px;
+  }
 }
 
 @media (min-width: 641px) {
-  #location-text-area textarea {
-    width: 470px;
+  #new-location-controls {
+    width: 320px;
   }
 }
+
 @media (max-width: 640px) {
-  #location-text-area textarea {
+  #new-location-controls {
     width: 234px;
+  }
+}
+
+@media (max-height: 420px), (max-width: 420px) and (orientation: landscape) {
+  #new-location-controls {
+    display: inline-block;
+    width: 200px;
+    margin-top: 0px;
+    margin-left: 8px;
   }
 }
 
@@ -108,25 +138,25 @@ html, body, #map {
 }
 
 #position li {
-display: inline-block;
-width: 10px;
-height: 10px;
-border-radius: 10px;
-background: #141414;
-box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;
-margin: 0 2px;
-cursor: pointer;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #141414;
+  box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;
+  margin: 0 2px;
+  cursor: pointer;
 }
 
 #position li.on {
-box-shadow: inset 0 1px 3px -1px #28b4ea,0 1px 2px rgba(0,0,0,.5);
-background-color: #1293dc;
-background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#1293dc),color-stop(100%,#0f6297));
-background-image: -webkit-linear-gradient(top,#1293dc,#0f6297);
-background-image: -moz-linear-gradient(top,#1293dc,#0f6297);
-background-image: -ms-linear-gradient(top,#1293dc,#0f6297);
-background-image: -o-linear-gradient(top,#1293dc,#0f6297);
-background-image: linear-gradient(top,#1293dc,#0f6297);
+  box-shadow: inset 0 1px 3px -1px #28b4ea,0 1px 2px rgba(0,0,0,.5);
+  background-color: #1293dc;
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#1293dc),color-stop(100%,#0f6297));
+  background-image: -webkit-linear-gradient(top,#1293dc,#0f6297);
+  background-image: -moz-linear-gradient(top,#1293dc,#0f6297);
+  background-image: -ms-linear-gradient(top,#1293dc,#0f6297);
+  background-image: -o-linear-gradient(top,#1293dc,#0f6297);
+  background-image: linear-gradient(top,#1293dc,#0f6297);
 }
 
 .gap-top {

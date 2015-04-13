@@ -45,7 +45,7 @@ parismetromap.directive('leaflet', function () {
 
 
       map.on('popupopen', function(e) {
-        $scope.$apply(function () {
+        $timeout(function () {
           $scope.activeLocation = e.popup._source;
           $scope.deleteButtonVisible = geoJsonLayer.hasLayer($scope.activeLocation);
         });
@@ -53,7 +53,7 @@ parismetromap.directive('leaflet', function () {
 
 
       map.on('popupclose', function(e) {
-        $scope.$apply(function () {
+        $timeout(function () {
           $scope.deleteButtonVisible = false;
         });
       });
@@ -204,36 +204,30 @@ parismetromap.directive('leaflet', function () {
         $scope.updateMapLocation();
       });
 
-
-
-      /*var newMarker = L.marker([0, 0], {
-        draggable: true, icon: L.AwesomeMarkers.icon({icon:'fa-plus',markerColor: 'green'})
-      });
-      
-      newMarker.on('dragend', function(e) {
-        $scope.$apply(function(s) {
-          console.log("marker new location: ", newMarker.getLatLng());
-          $scope.newLocation.geometry.coordinates = [newMarker.getLatLng().lng, newMarker.getLatLng().lat];
-          console.log("drag end: ", $scope.newLocation);
-        });
-      });*/
-
-
       $scope.$watch("newLocation", function() {
         console.log("Leaflet Directive: newLocation changed: ", $scope.newLocation);
         if ($scope.newLocation.geometry) {
-          $scope.showControls = true;
           console.log("Leaflet Directive: newLocation changed with lat:" + $scope.newLocation.geometry.coordinates[0] + " lon: " + $scope.newLocation.geometry.coordinates[1]);
           newMarker = L.marker([$scope.newLocation.geometry.coordinates[1], $scope.newLocation.geometry.coordinates[0]], {
-            draggable: true, icon: L.AwesomeMarkers.icon({icon:'fa-plus',markerColor: 'green'})
-          }).on('dragend', function(e) {
-            $scope.$apply(function(s) {
-              console.log("marker new location: ", newMarker.getLatLng());
-              $scope.newLocation.geometry.coordinates = [newMarker.getLatLng().lng, newMarker.getLatLng().lat];
-              console.log("drag end: ", $scope.newLocation);
-            })
+            draggable: true, icon: L.AwesomeMarkers.icon({icon: 'fa-plus', markerColor: 'green'}), zIndexOffset: 1000
           })
-          .addTo(map).bindPopup("Drag this marker");
+            .on('dragstart', function(e) {
+              $scope.$apply(function() {
+                $scope.showControls = false;
+              });
+              newMarker.closePopup();
+            })
+            .on('dragend', function(e) {
+              newMarker.openPopup();
+              $scope.$apply(function(s) {
+                console.log("marker new location: ", newMarker.getLatLng());
+                $scope.showControls = true;
+                $scope.newLocation.geometry.coordinates = [newMarker.getLatLng().lng, newMarker.getLatLng().lat];
+                console.log("drag end: ", $scope.newLocation);
+              })
+            })
+            .addTo(map).bindPopup("Drag me where you like").openPopup();
+          $scope.showControls = true;
         } else if (map.hasLayer(newMarker)) {
           map.removeLayer(newMarker);
         }
