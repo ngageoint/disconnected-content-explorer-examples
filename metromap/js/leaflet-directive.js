@@ -27,16 +27,15 @@ parismetromap.directive('leaflet', function () {
 
 
       var layerGroup = L.layerGroup();
-      var tileLayer;
-      var geoJsonLayer;
-      var geoMarker;
+      var userPoints;
+      var userLocationMarker;
       var newMarker;
       var mapZoom = { start:map.getZoom(), end:map.getZoom() };
       L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 
 
       map.setView([0,0], 12);
-      tileLayer = L.tileLayer('tiles/{z}/{x}/{y}.png', {
+      L.tileLayer('tiles/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="http://cloudmade.com">CloudMade</a>, Icon Map Created by <a href="http://thenounproject.com/term/map/32153/">Simple Icons</a>',
         maxZoom: 13,
         minZoom: 11,
@@ -47,7 +46,7 @@ parismetromap.directive('leaflet', function () {
       map.on('popupopen', function(e) {
         $timeout(function () {
           $scope.activeLocation = e.popup._source;
-          $scope.deleteButtonVisible = geoJsonLayer.hasLayer($scope.activeLocation);
+          $scope.deleteButtonVisible = userPoints.hasLayer($scope.activeLocation);
         });
       });
 
@@ -68,22 +67,22 @@ parismetromap.directive('leaflet', function () {
         mapZoom.end = map.getZoom();
         var diff = mapZoom.start - mapZoom.end;
 
-        if (geoMarker) {
+        if (userLocationMarker) {
           if (diff > 0) {
-            geoMarker.setRadius(geoMarker.getRadius() * 2);
+            userLocationMarker.setRadius(userLocationMarker.getRadius() * 2);
           } else if (diff < 0) {
-            geoMarker.setRadius(geoMarker.getRadius() / 2);
+            userLocationMarker.setRadius(userLocationMarker.getRadius() / 2);
           }
         }
       });
 
 
       map.on('layeradd', function () {
-        if (map.hasLayer(geoJsonLayer)) {
-          geoJsonLayer.bringToFront();
+        if (map.hasLayer(userPoints)) {
+          userPoints.bringToFront();
         }
-        if (map.hasLayer(geoMarker)) {
-          geoMarker.bringToFront();
+        if (map.hasLayer(userLocationMarker)) {
+          userLocationMarker.bringToFront();
         }
       });
 
@@ -242,7 +241,7 @@ parismetromap.directive('leaflet', function () {
             map.removeLayer(newMarker);
           }
 
-          geoJsonLayer = L.geoJson($scope.locations, {
+          userPoints = L.geoJson($scope.locations, {
             pointToLayer: function(feature, latlng) {
               return L.marker(latlng,
                   {icon: L.AwesomeMarkers.icon(
@@ -252,7 +251,7 @@ parismetromap.directive('leaflet', function () {
             onEachFeature: $scope.configureFeature
           });
 
-          layerGroup.addLayer(geoJsonLayer).addTo(map);
+          layerGroup.addLayer(userPoints).addTo(map);
           map
         }
       }, true);
@@ -264,12 +263,12 @@ parismetromap.directive('leaflet', function () {
           map.setView([$scope.lat, $scope.lon], 12);
           $scope.center = {lat: $scope.lat, lon: $scope.lon};
 
-          if (map.hasLayer(geoMarker)) {
-            map.removeLayer(geoMarker);
+          if (map.hasLayer(userLocationMarker)) {
+            map.removeLayer(userLocationMarker);
           }
 
           if ($scope.didGeolocate) {
-            geoMarker = L.circle([$scope.lat, $scope.lon], 250,  {
+            userLocationMarker = L.circle([$scope.lat, $scope.lon], 250,  {
             color: 'blue',
             fillColor: '#22f',
             fillOpacity: 0.5,
