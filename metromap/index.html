@@ -14,21 +14,20 @@
 
 <body ng-controller="AppCtrl">
 
-  <div id="group" class="btn-group">
-    <div class="btn btn-default" id="info" type="button" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
-      <i class="fa fa-question fa-lg"></i>
-    </div>
-
-    <div class="btn btn-default" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
-      <i class="fa fa-location-arrow fa-lg"></i>
-    </div>
-
-    <div class="btn btn-default" id="export" ng-click="exportPoints()" ngm-tap="exportPoints()">
-      <i class="fa fa-share-square-o fa-lg"></i>
-    </div>
-
-    <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ng-disabled="newLocation.geometry" ngm-tap="createNewLocation()">
-      <i class="fa fa-plus fa-lg"></i>
+  <div id="group">
+    <div class="btn-group">
+      <div class="btn btn-default" id="info" type="button" ng-click="toggleInfo()" ngm-tap="toggleInfo()">
+        <i class="fa fa-question fa-lg"></i>
+      </div>
+      <div class="btn btn-default" id="geolocate" ng-click="getLocation()" ngm-tap="getLocation()">
+        <i class="fa fa-location-arrow fa-lg"></i>
+      </div>
+      <div class="btn btn-default" id="export" ng-click="exportPoints()" ngm-tap="exportPoints()">
+        <i class="fa fa-share-square-o fa-lg"></i>
+      </div>
+      <div class="btn btn-success" id="new" type="button" ng-click="createNewLocation()" ng-disabled="newLocation.geometry" ngm-tap="createNewLocation()">
+        <i class="fa fa-plus fa-lg"></i>
+      </div>
     </div>
 
     <div id="new-location-controls" ng-cloak ng-if="showControls">
@@ -38,11 +37,11 @@
         <div class="btn btn-info" ng-click="saveLocation()" ngm-tap="saveLocation()">Save</div>
       </div>
     </div>
-  </div>
 
-  <button id="delete" class="btn btn-danger" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
-    <span class="glyphicon glyphicon-trash"></span>
-  </button>
+    <div id="delete" class="btn btn-danger" type="button" ng-cloak ng-if="deleteButtonVisible" ng-click="deleteLocation()" ngm-tap="deleteLocation()">
+      <span class="glyphicon glyphicon-trash"></span>
+    </div>
+  </div>
 
   <div id="status-window" ng-cloak ng-if="statusText" ng-click="dismissNotification()" ngm-tap="dismissNotification()">
     <p>{{statusText}}</p>

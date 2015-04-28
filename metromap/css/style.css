@@ -23,10 +23,20 @@ html, body, #map {
   float: left;
 }
 
+#group .btn-group {
+  vertical-align: top;
+}
+
+
+#delete {
+  margin-left: 5px;
+  vertical-align: top;
+}
+
 #new-location-controls {
   z-index: 34159;
   position: absolute;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 #new-location-controls textarea {
@@ -68,15 +78,8 @@ html, body, #map {
     width: 200px;
     margin-top: 0px;
     margin-left: 8px;
+    position: relative;
   }
-}
-
-#delete {
-  z-index: 34159;
-  position: absolute;
-  top: 10px;
-  left: 280px;
-  float: left;
 }
 
 #layers {
