@@ -26,7 +26,7 @@ parismetromap.directive('leaflet', function () {
 
 
 
-      var layerGroup = L.layerGroup();
+      var userPointsGroup = L.layerGroup();
       var userPoints;
       var userLocationMarker;
       var newMarker;
@@ -53,6 +53,7 @@ parismetromap.directive('leaflet', function () {
 
       map.on('popupclose', function(e) {
         $timeout(function () {
+          $scope.activeLocation = null;
           $scope.deleteButtonVisible = false;
         });
       });
@@ -177,18 +178,15 @@ parismetromap.directive('leaflet', function () {
 
       var tiles = null;
       var features = {
-        "My Points": layerGroup,
+        "My Points": userPointsGroup,
         "Museums": museums,
         "Attractions": attractions,
         "Metro Lines": railways
       };
       L.control.layers(tiles, features).addTo(map);
 
-
-      $scope.configureFeature = function (feature, layer) {
-        if (feature.properties && feature.properties.text) {
-          layer.bindPopup(feature.properties.text);
-        }
+      var configureFeature = function (feature, layer) {
+        layer.bindPopup(feature.properties.text);
       };
 
 
@@ -236,7 +234,7 @@ parismetromap.directive('leaflet', function () {
       $scope.$watch("locations", function() {
         console.log("Leaflet Directive: locations changed ", $scope.locations);
         if ($scope.locations) {
-          layerGroup.clearLayers();
+          userPointsGroup.clearLayers();
           if (map.hasLayer(newMarker)) {
             map.removeLayer(newMarker);
           }
@@ -248,11 +246,10 @@ parismetromap.directive('leaflet', function () {
                     {icon:'circle', markerColor: 'cadetblue'}
                   )});
             },
-            onEachFeature: $scope.configureFeature
+            onEachFeature: configureFeature
           });
 
-          layerGroup.addLayer(userPoints).addTo(map);
-          map
+          userPointsGroup.addLayer(userPoints).addTo(map);
         }
       }, true);
 
