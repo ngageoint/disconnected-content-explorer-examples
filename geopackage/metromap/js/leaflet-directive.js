@@ -20,7 +20,7 @@ parismetromap.directive('leaflet', function () {
         trackResize: true,
         maxBounds: [
           [48.937845, 2.164307],
-          [39.659669, 2.532349]
+          [48.690960, 2.532349]
         ]
       });
 
@@ -35,13 +35,12 @@ parismetromap.directive('leaflet', function () {
 
 
       map.setView([0,0], 12);
-      L.tileLayer('tiles/{z}/{x}/{y}.png', {
+      L.tileLayer('geopackage/metromap.gpkg?table=metromap&z={z}&x={x}&y={y}', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="http://cloudmade.com">CloudMade</a>, Icon Map Created by <a href="http://thenounproject.com/term/map/32153/">Simple Icons</a>',
         maxZoom: 13,
         minZoom: 11,
         errorTileUrl: "img/error_tile.png"
       }).addTo(map);
-
 
       map.on('popupopen', function(e) {
         $timeout(function () {
