@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Content Creation Guide</title>
-  <meta name="description" content="Download ContentCreationGuide.zip After clicking the link choose “Open in DICE.”">
+  <title>GeoPackage</title>
+  <meta name="description" content="Download metromap-geopackage.zip Copy the link and open DICE, or after tapping the link choose “Open in DICE.”">
 
   <link rel="stylesheet" href="/disconnected-content-explorer-examples/css/main.css">
-  <link rel="canonical" href="http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/19/contentguide.html">
+  <link rel="canonical" href="http://yourdomain.com/disconnected-content-explorer-examples/example/2016/06/21/geopackage.html">
   <link rel="alternate" type="application/rss+xml" title="DICE" href="/disconnected-content-explorer-examples/feed.xml" />
 </head>
 
@@ -61,36 +61,29 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Content Creation Guide</h1>
-    <p class="post-meta">Feb 19, 2015</p>
+    <h1 class="post-title">GeoPackage</h1>
+    <p class="post-meta">Jun 21, 2016</p>
   </header>
 
   <article class="post-content">
-    <p><a href="https://github.com/ngageoint/disconnected-content-explorer-examples/raw/master/reportzips/ContentCreationGuide.zip">Download ContentCreationGuide.zip</a> After clicking the link choose “Open in DICE.”</p>
+    <p><a href="https://github.com/ngageoint/disconnected-content-explorer-examples/raw/master/reportzips/geopackage/metromap-geopackage.zip">Download metromap-geopackage.zip</a> Copy the link and open DICE, or after tapping the link choose “Open in DICE.”</p>
 
-<p><img src="/disconnected-content-explorer-examples/images/contentguide.png" alt="Content Creation Guide Screenshot" /></p>
+<p><img src="/disconnected-content-explorer-examples/images/dicegpkg.png" alt="DICe and GeoPackage" /></p>
 
-<p>The content creation guide is a kitchen sink of interactive components, and some documentation to show you how to build your reports so you can get the most out of DICE.</p>
+<p>The DICE iOS and Android apps now support <a href="http://www.geopackage.org">GeoPackage</a> for offline map tiles. This OGC standard allows you to store multiple sets of tiles, vectors, and features in a single file.</p>
 
-<p>If you can display it in a browser using HTML5, CSS, and Javascript, odds are you can take that content offline with DICE, as long as you keep your data local and relatively linked.</p>
+<p>Each GeoPackage is a SQLite database so you can query and update it’s data.</p>
 
-<p>When creating your own content for DICE, you can add a metadata.json file to let the app know how to display your content in the list, tile, and map views. If you do not set a title, the filename minus the extension will be used.</p>
+<p>Below is an example of how to use a GeoPackage for displaying tiles in a DICE report using <a href="http://leafletjs.com">Leaflet</a>.</p>
 
-<p>An example metadata.json</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">	<span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">'geopackage/metromap.gpkg?table=metromap&amp;z={z}&amp;x={x}&amp;y={y}'</span><span class="p">,</span> <span class="p">{</span>
+	        <span class="na">attribution</span><span class="p">:</span> <span class="s1">'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery (c) &lt;a href="http://cloudmade.com"&gt;CloudMade&lt;/a&gt;, Icon Map Created by &lt;a href="http://thenounproject.com/term/map/32153/"&gt;Simple Icons&lt;/a&gt;'</span><span class="p">,</span>
+	        <span class="na">maxZoom</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+	        <span class="na">minZoom</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+	        <span class="na">errorTileUrl</span><span class="p">:</span> <span class="s2">"img/error_tile.png"</span>
+	      <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DICE User Guide"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A brief overview of this app"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img/thumbnail.png"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"tile_thumbnail"</span><span class="p">:</span><span class="s2">"img/tilethumb.png"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"reportID"</span><span class="p">:</span><span class="s2">"userguide1.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
-
-<p>Feel free to pull this report out of DICE and poke around in the code.</p>
-
-<p>Resources used to create the user guide: <a href="http://getbootstrap.com/">Bootstrap</a> for layout, <a href="http://zurb.com/playground/twentytwenty">TwentyTwenty</a> for the image comparison, <a href="http://leafletjs.com/">Leaflet.js</a> for the map, and <a href="http://www.idangero.us/sliders/swiper/index.php">Swiper</a> for the photo gallery.</p>
+<p>If you are interested in incorporating GeoPackage into one of your applications, we have <a href="http://ngageoint.github.io/GeoPackage/">SDKs available</a> for many platforms.</p>
 
 
   </article>
