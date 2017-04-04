@@ -4,11 +4,11 @@
     <title>DICE</title>
     <description>Disconnected Interactive Content Explorer (DICE) is an app for iOS, Android, and Windows that allows users to load and view interactive content created with HTML, CSS, and Javascript on a mobile device without a network connection. DICE can be used by disaster response personnel, urban search-and-rescue teams, and others that need interactive content to facilitate their efforts when cell towers may be down.
 </description>
-    <link>http://yourdomain.com/disconnected-content-explorer-examples/</link>
-    <atom:link href="http://yourdomain.com/disconnected-content-explorer-examples/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jun 2016 16:45:10 -0600</pubDate>
-    <lastBuildDate>Tue, 21 Jun 2016 16:45:10 -0600</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <link>http://localhost:4000/disconnected-content-explorer-examples/</link>
+    <atom:link href="http://localhost:4000/disconnected-content-explorer-examples/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 04 Apr 2017 12:56:17 -0400</pubDate>
+    <lastBuildDate>Tue, 04 Apr 2017 12:56:17 -0400</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
     
       <item>
         <title>GeoPackage</title>
@@ -22,8 +22,8 @@
 
 &lt;p&gt;Below is an example of how to use a GeoPackage for displaying tiles in a DICE report using &lt;a href=&quot;http://leafletjs.com&quot;&gt;Leaflet&lt;/a&gt;.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;	&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;geopackage/metromap.gpkg?table=metromap&amp;amp;z={z}&amp;amp;x={x}&amp;amp;y={y}&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	        &lt;span class=&quot;na&quot;&gt;attribution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Map data &amp;amp;copy; &amp;lt;a href=&quot;http://openstreetmap.org&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors, &amp;lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&amp;gt;CC-BY-SA&amp;lt;/a&amp;gt;, Imagery (c) &amp;lt;a href=&quot;http://cloudmade.com&quot;&amp;gt;CloudMade&amp;lt;/a&amp;gt;, Icon Map Created by &amp;lt;a href=&quot;http://thenounproject.com/term/map/32153/&quot;&amp;gt;Simple Icons&amp;lt;/a&amp;gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;	&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'geopackage/metromap.gpkg?table=metromap&amp;amp;z={z}&amp;amp;x={x}&amp;amp;y={y}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;na&quot;&gt;attribution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Map data &amp;amp;copy; &amp;lt;a href=&quot;http://openstreetmap.org&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors, &amp;lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&amp;gt;CC-BY-SA&amp;lt;/a&amp;gt;, Imagery (c) &amp;lt;a href=&quot;http://cloudmade.com&quot;&amp;gt;CloudMade&amp;lt;/a&amp;gt;, Icon Map Created by &amp;lt;a href=&quot;http://thenounproject.com/term/map/32153/&quot;&amp;gt;Simple Icons&amp;lt;/a&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	        &lt;span class=&quot;na&quot;&gt;maxZoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	        &lt;span class=&quot;na&quot;&gt;minZoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	        &lt;span class=&quot;na&quot;&gt;errorTileUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;img/error_tile.png&quot;&lt;/span&gt;
@@ -32,9 +32,9 @@
 &lt;p&gt;If you are interested in incorporating GeoPackage into one of your applications, we have &lt;a href=&quot;http://ngageoint.github.io/GeoPackage/&quot;&gt;SDKs available&lt;/a&gt; for many platforms.&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 21 Jun 2016 06:03:33 -0600</pubDate>
-        <link>http://yourdomain.com/disconnected-content-explorer-examples/example/2016/06/21/geopackage.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/disconnected-content-explorer-examples/example/2016/06/21/geopackage.html</guid>
+        <pubDate>Tue, 21 Jun 2016 08:03:33 -0400</pubDate>
+        <link>http://localhost:4000/disconnected-content-explorer-examples/example/2016/06/21/geopackage.html</link>
+        <guid isPermaLink="true">http://localhost:4000/disconnected-content-explorer-examples/example/2016/06/21/geopackage.html</guid>
         
         
         <category>Example</category>
@@ -62,7 +62,7 @@
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initBridge&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connectWebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;responseCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;JS got a message&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'JS got a message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -71,7 +71,7 @@
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;WebViewJavascriptBridgeReady&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'WebViewJavascriptBridgeReady'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -80,7 +80,7 @@
   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getLocation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Controller: in getLocaion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connectWebViewJavascriptBridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;getLocation&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'getLocation'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Recieved callback from geolocation.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
           &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setCoordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -99,9 +99,9 @@
 &lt;p&gt;Data for the map comes from &lt;a href=&quot;http://www.mapcruzin.com/&quot;&gt;Map Cruzin&lt;/a&gt; and &lt;a href=&quot;http://www.openstreetmap.org&quot;&gt;Open Street Map&lt;/a&gt; under the Open Data Commons Open Database License (ODbL).&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 25 Feb 2015 05:51:33 -0700</pubDate>
-        <link>http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/25/metromap.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/25/metromap.html</guid>
+        <pubDate>Wed, 25 Feb 2015 07:51:33 -0500</pubDate>
+        <link>http://localhost:4000/disconnected-content-explorer-examples/example/2015/02/25/metromap.html</link>
+        <guid isPermaLink="true">http://localhost:4000/disconnected-content-explorer-examples/example/2015/02/25/metromap.html</guid>
         
         
         <category>Example</category>
@@ -137,9 +137,9 @@
 &lt;p&gt;Resources used to create the user guide: &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; for layout, &lt;a href=&quot;http://zurb.com/playground/twentytwenty&quot;&gt;TwentyTwenty&lt;/a&gt; for the image comparison, &lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet.js&lt;/a&gt; for the map, and &lt;a href=&quot;http://www.idangero.us/sliders/swiper/index.php&quot;&gt;Swiper&lt;/a&gt; for the photo gallery.&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 19 Feb 2015 05:51:33 -0700</pubDate>
-        <link>http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/19/contentguide.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/19/contentguide.html</guid>
+        <pubDate>Thu, 19 Feb 2015 07:51:33 -0500</pubDate>
+        <link>http://localhost:4000/disconnected-content-explorer-examples/example/2015/02/19/contentguide.html</link>
+        <guid isPermaLink="true">http://localhost:4000/disconnected-content-explorer-examples/example/2015/02/19/contentguide.html</guid>
         
         
         <category>Example</category>
@@ -161,9 +161,9 @@
 &lt;p&gt;Resources used to create the user guide: &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; for layout and &lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet.js&lt;/a&gt; for the map.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 04 Feb 2015 05:51:33 -0700</pubDate>
-        <link>http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/04/userguide.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/disconnected-content-explorer-examples/example/2015/02/04/userguide.html</guid>
+        <pubDate>Wed, 04 Feb 2015 07:51:33 -0500</pubDate>
+        <link>http://localhost:4000/disconnected-content-explorer-examples/example/2015/02/04/userguide.html</link>
+        <guid isPermaLink="true">http://localhost:4000/disconnected-content-explorer-examples/example/2015/02/04/userguide.html</guid>
         
         
         <category>Example</category>
